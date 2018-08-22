@@ -3,9 +3,9 @@ package mybatis;
 /**
  * Created by Administrator on 2018/8/15.
  */
-public class Rolo {
+public class Role {
     private Long id;
-    private String roloName;
+    private String roleName;
     private String note;
 
     public Long getId() {
@@ -16,12 +16,12 @@ public class Rolo {
         this.id = id;
     }
 
-    public String getRoloName() {
-        return roloName;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setRoloName(String roloName) {
-        this.roloName = roloName;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public String getNote() {

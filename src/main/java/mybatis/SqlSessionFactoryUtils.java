@@ -47,9 +47,16 @@ public class SqlSessionFactoryUtils {
         SqlSession sqlSession = null;
         try {
             sqlSession = SqlSessionFactoryUtils.openSqlSession();
-            RoloMapper roloMapper = sqlSession.getMapper(RoloMapper.class);
-            Rolo rolo = roloMapper.getRolo(1L);
-            log.info(rolo.getRoloName());
+            //System.out.println(sqlSession.getClass().getName());
+            RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+            System.out.println(roleMapper);
+            roleMapper.getRole(1L);
+
+            //System.out.println(RoleMapper.class.getName());
+           // System.out.println(roleMapper.getClass().getName());
+            Role role = roleMapper.getRole((long) 2);
+            System.out.println("3333");
+            log.info(role.getRoleName());
         }finally {
             if (sqlSession!=null){
                 sqlSession.close();
