@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+<bean id="xmlAspect" class="SpringAop.XmlAspect"/>
+       <bean id="roleService" class="SpringAop.RoleServiceImpl"/>
+       <aop:config>
+       <aop:aspect ref="xmlAspect">
+              <aop:pointcut id="printRole" expression="execution(*  SpringAop.RoleServiceImpl.printRole(..)))"/>
+       <aop:before method="before" pointcut-ref="printRole"/>
+              <aop:after method="after" pointcut-ref="printRole"/>
+
+              <aop:after-throwing method="afterThrowing" pointcut-ref="printRole"/>
+
+              <aop:after-returning method="afterReturning" pointcut-ref="printRole"/>
+
+       </aop:aspect>
+
+</aop:config>
+</beans>
